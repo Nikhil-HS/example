@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <body>
+  </head>
+  <body>
+
+    <nav class='navbar navbar-inverse'>
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Welcome</a>
+
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="{% url 'basic_app:myfunc' %}">Landing Page</a></li>
+        <li><a href="{% url 'basic_app:MTV' %}">Data Record</a></li>
+        <li><a href="{% url 'basic_app:form_name' %}">Form</a></li>
+        <li><a href="{% url 'basic_app:register'  %}">Register</a></li>
+        <li><a href="{% url 'admin:index'  %}">Admin Page</a></li>
+
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% else %}
+            <li><a href="{% url 'basic_app:user_login' %}">Login</a></li>
+        {% endif %}
+
+      </ul>
+
+    </nav>
+
+    <!-- the above syntax is template tagging. Here important is the Global Variable defined in urls.py in App folder -->
+    <!-- In "basic_app:MTV"   The "basic_app" is the string assignment of Global Variable. Matching of this name is compulsory -->
+    <!-- and "MTV" is the 'Name' attribute of 'url' in 'urlpatterns' list  -->
+    <div class="container">
+      {% block my_block %}
+
+      <!-- So, the rest of stuff in this html will we constant for other htmls. The stuff inside this block will be from other html. -->
+      <!-- Tis place is kind of blocker space for the data from other HTML -->
+
+      {% endblock %}
+
+    </div>
+
+  </body>
+</html>

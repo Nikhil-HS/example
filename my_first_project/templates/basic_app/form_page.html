@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends "basic_app/BASE_html.html" %}
+
+
+{% block my_block %}
+<div class="container">
+  <form method="post">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <input type="submit" name="btn btn-primary" value="SubmiT">
+
+  </form>
+</div>
+
+{% endblock %}

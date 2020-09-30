@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends "basic_app/BASE_html.html" %}
+{% load static %}
+{% load my_file %}
+
+{% block my_block %}
+<div class="container">
+  <div class="jumbotron">
+    <h1>Hello, this is index.html</h1>
+    <img src="{% static "images/django.png" %}" alt="Uh oh!! No Image found">
+
+    <h3>{{ insert_me|my_filter }}</h3>
+    <!-- above, customized_filter which is defined in templatetags folder -->
+    <h3>{{ number_entry|add:"10" }}</h3>
+    <!-- above, add is default Templateflter of python -->
+
+    <p></p>
+    <p></p>
+    <h3>/more for further options</h3>
+  </div>
+</div>
+{% endblock %}

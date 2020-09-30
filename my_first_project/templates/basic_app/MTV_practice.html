@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% extends "basic_app/BASE_html.html" %}
+{% load static %}
+
+{% block my_block %}
+
+<h1>Hello, this is data representation page</h1>
+<h2>This html file reads the data from .db file and displays here.</h2>
+<h2>This html file has used FOR loop and IF loop...That is Interesting</h2>
+<p></p>
+<p></p>
+
+<div class="djangotwo">
+  <!-- This is called template tagging. This particular line checks if we have the key "Date_List" in views.py. If yes, then go in loop -->
+  {% if Date_List %}
+    <table>
+      <thead>
+        <th>Site Name</th>
+        <th>date Accessed</th>
+      </thead>
+
+      {% for DATA in Date_List %}
+        <tr>
+          <td>{{ DATA.name }}</td>
+          <td>{{ DATA.date }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+      <p>NO ACCESS RECORD FOUND</p>
+  {% endif %}
+
+</div>
+
+{% endblock %}

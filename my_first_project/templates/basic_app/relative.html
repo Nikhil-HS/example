@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+{% extends "basic_app/BASE_html.html" %}
+
+{% block my_block %}
+<div class="container">
+  <div class="jumbotron">
+
+
+    <ul>
+      <li> <a href="{% url 'basic_app:myfunc' %}">Main Page</a> </li>
+    </ul>
+
+  </div>
+
+</div>
+{% endblock %}
